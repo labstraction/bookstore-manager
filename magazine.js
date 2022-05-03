@@ -2,13 +2,15 @@
 
 ///properties:
 ///title
-///editor
-///release
+///publisher
+///periodicy
 ///cadence
 ///type
 ///price
 ///copies
 ///discount
+///releaseDate
+
 
 ///methods:
 ///toString()

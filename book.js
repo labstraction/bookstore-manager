@@ -3,7 +3,7 @@
 ///properties:
 ///title
 ///author
-///editor
+///publisher
 ///type
 ///price
 ///copies
