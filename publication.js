@@ -11,6 +11,7 @@ class Publication{
   }
 
   toString(){
+
     const pubString = 'Titlo: ' + this.title + '\n' +
                       'Casa Editrice: ' + this.publisher + '\n' +
                       'Genere: ' + this.type + '\n' +
@@ -19,6 +20,7 @@ class Publication{
                       'Sconto: ' + this.discount + '%';
 
     return pubString;
+    
   }
 
   // getPublicPriceWithoutTax(){
