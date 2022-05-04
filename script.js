@@ -1,10 +1,13 @@
 
 const book = new Book('iliade', 'omero', 'gazanti', 'classici', 8.50, 5, 120, 2008, 10);
 
-const magazine = new Magazine('pesca sportiva', 'fabbri', 5, 'settimanale', 'caccia e pesca', 5.50, 10, 0, new Date())
+const book2 = new Book('odissea', 'omero');
+
+const magazine = new Magazine('pesca sportiva', 'fabbri', 5, 'settimanale', 'caccia e pesca', 5.50, 10, 0, new Date(2022, 0, 10))
 
 console.log(book.toString());
 
+console.log(book2.toString());
 
 console.log(magazine.toString());
 
@@ -21,8 +24,9 @@ console.log(aircraft.toString());
 
 
 
+ const number = 11.0367;
 
-// const number = 11.0367;
+ console.log(Publication.round(number, 2));
 
 
 // console.log(number.toFixed(2));

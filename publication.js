@@ -1,5 +1,6 @@
 class Publication{
 
+
   constructor(title, publisher, type, price, copies, discount, tax) {
     this.title = title;
     this.publisher = publisher;
@@ -12,15 +13,17 @@ class Publication{
 
   toString(){
 
+    const publicPrice = this.getPublicPrice() > 0 ? this.getPublicPrice().toFixed(2) : 'Non disponibile'
+
     const pubString = 'Titlo: ' + this.title + '\n' +
                       'Casa Editrice: ' + this.publisher + '\n' +
                       'Genere: ' + this.type + '\n' +
-                      'Price: ' + this.getPublicPrice().toFixed(2) + '€' + '\n' +
+                      'Price: ' + publicPrice + '€' + '\n' +
                       'Copie: ' + this.copies + '\n' +
                       'Sconto: ' + this.discount + '%';
 
     return pubString;
-    
+
   }
 
   // getPublicPriceWithoutTax(){
@@ -31,18 +34,22 @@ class Publication{
   // }
 
   getPublicPrice() {
+
+    if(this.price < 0){
+      return this.price;
+    }
+
     const discount = this.price * this.discount / 100;
     const margin = this.price * 0.3;
     const tax = this.price * this.tax / 100
     const publicPrice = this.price + tax - discount + margin;
-    const roundedPublicPrice = this.round(publicPrice, 2);
+    const roundedPublicPrice = Publication.round(publicPrice, 2);
     return roundedPublicPrice;
   }
 
-  round(number, decimalPlace) {
+  static round(number, decimalPlace) {
     const roundedString = number.toFixed(decimalPlace);
     const roundedNumber = parseFloat(roundedString);
     return roundedNumber;
   }
-
 }
