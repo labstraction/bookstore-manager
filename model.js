@@ -23,7 +23,7 @@ class Vehicle{
     // const retired3 = retired2;
 
     return 'Nome: ' + this.name + '\n' +
-           'Tipo: ' + this.getType() + '\n' +
+           'Tipo: ' + this.type + '\n' +
            'Produttore: ' + this.producer + '\n' +
            'Anno: ' + this.yop + '\n' +
            'Costo: ' + this.getPrice() + '\n' +
@@ -37,7 +37,12 @@ class Vehicle{
 
   getPrice(){
     const tax = this.cost * this.tax / 100;
-    const publicPrice = this.cost + tax;
+    let publicPrice = this.cost + tax;
+    
+    if (this.type === Aircraft.TYPE.Bomber) {
+      publicPrice = publicPrice + 1000;
+    }
+
     const rounded = this.round(publicPrice, 2);
     return rounded;
   }
@@ -56,6 +61,13 @@ class Vehicle{
 }
 
 class Tank extends Vehicle{
+
+  static TYPE = {
+    Tank: 'Carro Armato',
+    SPG: 'Semovente',
+    Recon: 'Ricognizione',
+    Transport: 'Trasporto',
+  }
 
   constructor(name, type, producer, yop, suspension, cost, speed, isRetired, armour){
     super(name, type, producer, yop, cost, speed, isRetired, 30);
@@ -86,6 +98,13 @@ class Tank extends Vehicle{
 
 class Aircraft extends Vehicle{
 
+  static TYPE = { 
+    Bomber: 'Bombardiere',
+    Helicopter : 'Elicottero',
+    Fighter: 'Caccia',
+    Trainer: 'Addestratore',
+  }
+
   constructor(name, type, producer, yop, cost, speed, isRetired, altitude) {
     super(name, type, producer, yop, cost, speed, isRetired, 10);
     this.altitude = altitude;
@@ -113,5 +132,32 @@ class Aircraft extends Vehicle{
         break;
     }
   }
+
+}
+
+
+class TemperatureObservation{
+
+  constructor(temperature, date, location){
+    this.temperature = temperature;
+    this.date = date;
+    this.location = location;
+  }
+
+  getFTemp(){
+    const cToFahr = this.temperature * 9 / 5 + 32;
+    return cToFahr;
+  }
+
+  get tempF(){
+    const cToFahr = this.temperature * 9 / 5 + 32;
+    return cToFahr;
+  }
+
+  set tempF(value) {
+    const fToCel = (value - 32) * 5 / 9;
+    this.temperature = fToCel;
+  }
+
 
 }

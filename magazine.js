@@ -4,7 +4,17 @@ class Magazine extends Publication{
     super(title, publisher, type, price, copies, discount, 20);
     this.release = release;
     this.periodicy = periodicy;
-    this.releaseDate = releaseDate;
+    this._releaseDate = releaseDate.getTime();
+  }
+
+  get releaseDate(){
+    const date = new Date(this._releaseDate);
+    return date;
+  }
+
+  set releaseDate(value){
+    const time = value.getTime();
+    this._releaseDate = time;
   }
 
   toString() {
