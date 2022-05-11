@@ -77,3 +77,62 @@ console.log(obs.temperature)
 //   const roundedNumber = roundedMultipliedNumber / multiplier;
 //   return roundedNumber;
 // }
+
+
+
+
+// const libro1 = { title: 'odissea', copies: 5 };
+// const libro2 = { title: 'iliade', copies: 15 };
+// const libro3 = { title: 'i promessi sposi', copies: 3 };
+
+// let bookList = [libro1, libro2, libro3];
+
+// function displayBooks(){
+
+//   const template = `
+//     <span><strong>#TITLE</strong></span><br>
+//     <span>copie: #COPIES</span>
+//   `
+//   const bookListContainer = document.getElementById('book-list-container');
+
+//   bookListContainer.innerHTML = '';
+
+//   for (const book of bookList) {
+    
+//     const bookContainer = document.createElement('div');
+
+//     const replacedTemplate = template.replace('#TITLE', book.title).replace('#COPIES', book.copies);
+
+//     bookContainer.innerHTML = replacedTemplate;
+
+//     const button = document.createElement('button');
+//     button.appendChild(document.createTextNode('vendi'))
+//     button.addEventListener('click', () => sellBook(book));
+
+//     bookContainer.appendChild(button);
+
+
+//     bookListContainer.appendChild(bookContainer);
+//   }
+// }
+
+// displayBooks()
+
+// function sellBook(book){
+//   book.copies = book.copies - 1;
+//   if (book.copies === 0) {
+//     const tempArray = [];
+//     for (let i = 0; i < bookList.length; i++) {
+//       const b = bookList[i];
+//       if (b.copies > 0) {
+//         tempArray.push(b);
+//       }
+//     }
+//     bookList = tempArray;
+//     // const index = bookList.indexOf(book);
+//     // bookList.splice(index, 1);
+
+//     // bookList.splice(bookList.indexOf(book), 1);
+//   }
+//   displayBooks();
+// }
